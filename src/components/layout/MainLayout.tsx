@@ -1,39 +1,8 @@
-import {
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
-import { Layout, Menu, MenuProps } from "antd";
-
+import { Layout, Menu } from "antd";
+import { Outlet } from "react-router-dom";
+import { adminSidebarItems } from "../../routes/admin.routes";
 const { Header, Content, Footer, Sider } = Layout;
-const items: MenuProps["items"] = [
-  {
-    key: "admin",
-    label: "Admin",
-    children: [
-      {
-        key: "createStudent",
-        label: "Create Student",
-      },
-      {
-        key: "updateStudent",
-        label: "Update Student",
-      },
-      {
-        key: "deleteStudent",
-        label: "Delete Student",
-      },
-    ],
-  },
-  {
-    key: "faculty",
-    label: "Faculty",
-  },
-  {
-    key: "student",
-    label: "Student",
-  },
-];
+
 const MainLayout = () => {
   return (
     <Layout style={{ height: "100vh" }}>
@@ -47,14 +16,23 @@ const MainLayout = () => {
           console.log(collapsed, type);
         }}
       >
-        <div style={{padding:"1rem"}}>
-        <h1 style={{textAlign:"center"}}>North Bengal University</h1>
+        <div
+          style={{
+            color: "white",
+
+            height: "4rem",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <h1>University</h1>
         </div>
         <Menu
           theme="dark"
           mode="inline"
           defaultSelectedKeys={["4"]}
-          items={items}
+          items={adminSidebarItems}
         />
       </Sider>
       <Layout>
@@ -66,7 +44,7 @@ const MainLayout = () => {
               minHeight: 360,
             }}
           >
-            Here is my content
+            <Outlet />
           </div>
         </Content>
         <Footer style={{ textAlign: "center" }}>
