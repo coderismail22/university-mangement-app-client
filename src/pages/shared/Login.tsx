@@ -4,6 +4,7 @@ import { useLoginMutation } from "../../redux/features/auth/authApi";
 import { useAppDispatch } from "../../redux/hooks";
 import { setUser } from "../../redux/features/auth/authSlice";
 import { verifyToken } from "../../utils/verifyToken";
+import { useLocation, useNavigate } from "react-router-dom";
 
 type TUserInfo = {
   id: string;
@@ -17,15 +18,24 @@ const Login = () => {
       password: "admin12345",
     },
   });
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const [login] = useLoginMutation();
   const dispatch = useAppDispatch();
 
   const onSubmit = async (userInfo: TUserInfo) => {
-    console.log(userInfo);
-
-    const res = await login(userInfo).unwrap();
-    const user = verifyToken(res.data.accessToken);
-    dispatch(setUser({ user: user, token: res.data.accessToken }));
+    try {
+      console.log(userInfo);
+      const from = location.state?.from?.pathname || "/";
+      const res = await login(userInfo).unwrap();
+      const user = verifyToken(res.data.accessToken);
+      dispatch(setUser({ user: user, token: res.data.accessToken }));
+      navigate(from, { replace: true });
+    } catch (error) {
+      // Handle login error
+      console.error("Login failed:", error);
+    }
   };
   return (
     <div>
