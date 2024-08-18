@@ -1,35 +1,39 @@
-import { createBrowserRouter } from 'react-router-dom';
-import App from '../App';
-import Login from '../pages/shared/Login';
-import Register from '../pages/shared/Register';
-import { adminRoutes } from './admin.routes';
+import { createBrowserRouter } from "react-router-dom";
+import App from "../App";
+import Login from "../pages/shared/Login";
+import Register from "../pages/shared/Register";
+
+import { adminArray } from "./admin.route";
+import { facultyArray } from "./faculty.route";
+import { studentArray } from "./student.route";
+import { routeGenerator } from "../utils/routeGenerator";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <App />,
   },
   {
-    path: '/admin',
+    path: "/admin",
     element: <App />,
-    children: adminRoutes,
+    children: routeGenerator(adminArray),
   },
   {
-    path: '/faculty',
+    path: "/faculty",
     element: <App />,
-    children: adminRoutes,
+    children: routeGenerator(facultyArray),
   },
   {
-    path: '/student',
+    path: "/student",
     element: <App />,
-    children: adminRoutes,
+    children: routeGenerator(studentArray),
   },
   {
-    path: '/login',
+    path: "/login",
     element: <Login />,
   },
   {
-    path: '/register',
+    path: "/register",
     element: <Register />,
   },
 ]);
