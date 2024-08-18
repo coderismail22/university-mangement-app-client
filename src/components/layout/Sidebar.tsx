@@ -14,7 +14,7 @@ const Sidebar = () => {
     BAAP: "baap",
   };
 
-  const role = "baap";
+  const role = "admin";
   let sidebarItems;
   switch (role) {
     case userRole.ADMIN:
