@@ -19,7 +19,8 @@ export const sidebarGenerator = (items: TUserPath[], role: string) => {
         icon: item.icon,
         children: item.children.map((child) => ({
           key: child.name,
-          label: <NavLink to={`/admin/${child.path}`}>{child.name}</NavLink>,
+          icon:child.icon,
+          label: <NavLink to={`/${role}/${child.path}`}>{child.name}</NavLink>,
         })),
       });
     }
