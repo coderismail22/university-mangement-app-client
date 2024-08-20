@@ -5,6 +5,7 @@ import { useAppDispatch } from "../../redux/hooks";
 import { setUser } from "../../redux/features/auth/authSlice";
 import { verifyToken } from "../../utils/verifyToken";
 import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 type TUserInfo = {
   id: string;
@@ -26,15 +27,18 @@ const Login = () => {
 
   const onSubmit = async (userInfo: TUserInfo) => {
     try {
+      const toastId = toast.loading("Logging in ...");
       console.log(userInfo);
       const from = location.state?.from?.pathname || "/";
       const res = await login(userInfo).unwrap();
       const user = verifyToken(res.data.accessToken);
       dispatch(setUser({ user: user, token: res.data.accessToken }));
       navigate(from, { replace: true });
+      toast.success("Successfully logged in.", { id: toastId });
     } catch (error) {
       // Handle login error
       console.error("Login failed:", error);
+      toast.error("Login failed.");
     }
   };
   return (
