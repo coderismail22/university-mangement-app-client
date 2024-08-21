@@ -11,6 +11,7 @@ import {
   DashboardOutlined,
   UserOutlined,
 } from "@ant-design/icons";
+import AcademicSemester from "../pages/admin/academicManagement/AcademicSemester";
 
 export const adminArray = [
   {
@@ -19,6 +20,17 @@ export const adminArray = [
     icon: <DashboardOutlined />,
     element: <AdminDashboard />,
   },
+  {
+    name:"Academic Management",
+    children:[
+      {
+        name:'Academic Semester',
+        path:'academic-semester',
+        element:<AcademicSemester/>
+      }
+    ]
+  }
+  ,
   {
     name: "User Management",
     icon: <UserOutlined />,
