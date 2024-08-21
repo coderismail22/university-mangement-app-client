@@ -32,13 +32,15 @@ const Login = () => {
       const from = location.state?.from?.pathname || "/";
       const res = await login(userInfo).unwrap();
       const user = verifyToken(res.data.accessToken);
+      console.log("response", res);
       dispatch(setUser({ user: user, token: res.data.accessToken }));
       navigate(from, { replace: true });
       toast.success("Successfully logged in.", { id: toastId });
     } catch (error) {
       // Handle login error
-      console.error("Login failed:", error);
-      toast.error("Login failed.");
+      console.log('error')
+      // console.error("Login failed:", error);
+      // toast.error("Login failed.");
     }
   };
   return (
