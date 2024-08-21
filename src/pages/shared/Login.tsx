@@ -38,9 +38,8 @@ const Login = () => {
       toast.success("Successfully logged in.", { id: toastId });
     } catch (error) {
       // Handle login error
-      console.log('error')
-      // console.error("Login failed:", error);
-      // toast.error("Login failed.");
+      console.error("Login failed:", error);
+      toast.error("Login failed.");
     }
   };
   return (
