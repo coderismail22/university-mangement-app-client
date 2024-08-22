@@ -1,7 +1,11 @@
 import { Input } from "antd";
 import { Controller } from "react-hook-form";
-
-const CustomInput = ({ name, type, placeholder }) => {
+type TInputProps = {
+  name: string;
+  type: string;
+  placeholder: string;
+};
+const CustomInput = ({ name, type, placeholder }: TInputProps) => {
   return (
     <Controller
       name={name}
