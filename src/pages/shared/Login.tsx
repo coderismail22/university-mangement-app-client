@@ -15,38 +15,35 @@ type TUserInfo = {
 };
 
 const Login = () => {
-  const { handleSubmit, register } = useForm<TUserInfo>({
-    // defaultValues: {
-    //   id: "0001",
-    //   password: "admin12345",
-    // },
-  });
-  // const navigate = useNavigate();
-  // const location = useLocation();
+  const defaultValues = {
+    id: "0001",
+    password: "admin12345",
+  };
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  // const [login] = useLoginMutation();
-  // const dispatch = useAppDispatch();
+  const [login] = useLoginMutation();
+  const dispatch = useAppDispatch();
 
   const onSubmit = async (userInfo: TUserInfo) => {
     console.log(userInfo);
-    // try {
-    //   const toastId = toast.loading("Logging in ...");
-    //   console.log(userInfo);
-    //   const from = location.state?.from?.pathname || "/";
-    //   const res = await login(userInfo).unwrap();
-    //   const user = verifyToken(res.data.accessToken);
-    //   console.log("response", res);
-    //   dispatch(setUser({ user: user, token: res.data.accessToken }));
-    //   navigate(from, { replace: true });
-    //   toast.success("Successfully logged in.", { id: toastId });
-    // } catch (error) {
-    // Handle login error
-    //   console.error("Login failed:", error);
-    //   toast.error("Login failed.");
-    // }
+    try {
+      const toastId = toast.loading("Logging in ...");
+      const from = location.state?.from?.pathname || "/";
+      const res = await login(userInfo).unwrap();
+      const user = verifyToken(res.data.accessToken);
+      console.log("response", res);
+      dispatch(setUser({ user: user, token: res.data.accessToken }));
+      navigate(from, { replace: true });
+      toast.success("Successfully logged in.", { id: toastId });
+    } catch (error) {
+      //Handle login error
+      console.error("Login failed:", error);
+      toast.error("Login failed.");
+    }
   };
   return (
-    <UniversityForm onSubmit={onSubmit} >
+    <UniversityForm onSubmit={onSubmit} defaultValues={defaultValues}>
       <div
         style={{
           display: "flex",

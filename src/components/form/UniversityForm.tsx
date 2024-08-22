@@ -1,6 +1,6 @@
 import { FormProvider, useForm } from "react-hook-form";
-const UniversityForm = ({ onSubmit, children }) => {
-  const methods = useForm();
+const UniversityForm = ({ onSubmit, children, defaultValues }) => {
+  const methods = useForm({ defaultValues: defaultValues });
 
   return (
     <FormProvider {...methods}>
