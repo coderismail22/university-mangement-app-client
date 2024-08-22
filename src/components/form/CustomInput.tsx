@@ -1,15 +1,14 @@
-import { useFormContext } from "react-hook-form";
+import { Input } from "antd";
+import { Controller } from "react-hook-form";
 
 const CustomInput = ({ name, type, placeholder }) => {
-  const { register } = useFormContext();
   return (
-    <input
-      {...register(name)}
+    <Controller
       name={name}
-      type={type}
-      style={{ width: "50%", height: "30px", padding: "10px" }}
-      placeholder={placeholder}
-    ></input>
+      render={({ field }) => (
+        <Input {...field} id={name} type={type} placeholder={placeholder} />
+      )}
+    />
   );
 };
 

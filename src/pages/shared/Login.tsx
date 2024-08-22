@@ -46,7 +46,7 @@ const Login = () => {
     // }
   };
   return (
-    <UniversityForm onSubmit={onSubmit}>
+    <UniversityForm onSubmit={onSubmit} >
       <div
         style={{
           display: "flex",

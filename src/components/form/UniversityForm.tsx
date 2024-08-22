@@ -1,5 +1,4 @@
 import { FormProvider, useForm } from "react-hook-form";
-
 const UniversityForm = ({ onSubmit, children }) => {
   const methods = useForm();
 
