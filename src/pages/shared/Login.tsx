@@ -6,6 +6,8 @@ import { setUser } from "../../redux/features/auth/authSlice";
 import { verifyToken } from "../../utils/verifyToken";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import UniversityForm from "../../components/form/UniversityForm";
+import CustomInput from "../../components/form/CustomInput";
 
 type TUserInfo = {
   id: string;
@@ -14,39 +16,38 @@ type TUserInfo = {
 
 const Login = () => {
   const { handleSubmit, register } = useForm<TUserInfo>({
-    defaultValues: {
-      id: "0001",
-      password: "admin12345",
-    },
+    // defaultValues: {
+    //   id: "0001",
+    //   password: "admin12345",
+    // },
   });
-  const navigate = useNavigate();
-  const location = useLocation();
+  // const navigate = useNavigate();
+  // const location = useLocation();
 
-  const [login] = useLoginMutation();
-  const dispatch = useAppDispatch();
+  // const [login] = useLoginMutation();
+  // const dispatch = useAppDispatch();
 
   const onSubmit = async (userInfo: TUserInfo) => {
-    try {
-      const toastId = toast.loading("Logging in ...");
-      console.log(userInfo);
-      const from = location.state?.from?.pathname || "/";
-      const res = await login(userInfo).unwrap();
-      const user = verifyToken(res.data.accessToken);
-      console.log("response", res);
-      dispatch(setUser({ user: user, token: res.data.accessToken }));
-      navigate(from, { replace: true });
-      toast.success("Successfully logged in.", { id: toastId });
-    } catch (error) {
-      // Handle login error
-      console.error("Login failed:", error);
-      toast.error("Login failed.");
-    }
+    console.log(userInfo);
+    // try {
+    //   const toastId = toast.loading("Logging in ...");
+    //   console.log(userInfo);
+    //   const from = location.state?.from?.pathname || "/";
+    //   const res = await login(userInfo).unwrap();
+    //   const user = verifyToken(res.data.accessToken);
+    //   console.log("response", res);
+    //   dispatch(setUser({ user: user, token: res.data.accessToken }));
+    //   navigate(from, { replace: true });
+    //   toast.success("Successfully logged in.", { id: toastId });
+    // } catch (error) {
+    // Handle login error
+    //   console.error("Login failed:", error);
+    //   toast.error("Login failed.");
+    // }
   };
   return (
-    <div>
-      <h1 style={{ textAlign: "center", marginBottom: "5px" }}>Login</h1>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
+    <UniversityForm onSubmit={onSubmit}>
+      <div
         style={{
           display: "flex",
           flexDirection: "column",
@@ -55,20 +56,12 @@ const Login = () => {
           justifyContent: "center",
         }}
       >
-        <input
-          {...register("id")}
-          style={{ width: "50%", height: "30px", padding: "10px" }}
-          placeholder="USER ID"
-        ></input>
-        <input
-          {...register("password")}
-          type="password"
-          style={{ width: "50%", height: "30px", padding: "10px" }}
-          placeholder="PASSWORD"
-        ></input>
+        <CustomInput name="id" type="text" placeholder="User ID" />
+        <CustomInput name="password" type="text" placeholder="Password" />
+
         <Button htmlType="submit">SUBMIT</Button>
-      </form>
-    </div>
+      </div>
+    </UniversityForm>
   );
 };
 
