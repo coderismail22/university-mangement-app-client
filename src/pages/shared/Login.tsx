@@ -16,8 +16,8 @@ type TUserInfo = {
 
 const Login = () => {
   const defaultValues: TUserInfo = {
-    id: "0001",
-    password: "admin12345",
+    id: "A-0001",
+    password: "admin123",
   };
   const navigate = useNavigate();
   const location = useLocation();
