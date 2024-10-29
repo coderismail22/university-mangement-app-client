@@ -16,7 +16,7 @@ type TFormProps = {
   children: ReactNode;
 } & TFormConfig;
 
-const UniversityForm = ({ onSubmit, children, defaultValues }: TFormProps) => {
+const NexusForm = ({ onSubmit, children, defaultValues }: TFormProps) => {
   const formConfig: TFormConfig = {};
 
   if (defaultValues) {
@@ -27,9 +27,11 @@ const UniversityForm = ({ onSubmit, children, defaultValues }: TFormProps) => {
 
   return (
     <FormProvider {...methods}>
-      <Form layout="vertical" onFinish={methods.handleSubmit(onSubmit)}>{children}</Form>
+      <Form layout="vertical" onFinish={methods.handleSubmit(onSubmit)}>
+        {children}
+      </Form>
     </FormProvider>
   );
 };
 
-export default UniversityForm;
+export default NexusForm;

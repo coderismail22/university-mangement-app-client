@@ -6,7 +6,7 @@ type TInputProps = {
   placeholder?: string;
   label?: string;
 };
-const CustomInput = ({ name, type, placeholder, label }: TInputProps) => {
+const NexusInput = ({ name, type, placeholder, label }: TInputProps) => {
   return (
     <div style={{ marginBottom: "20px" }}>
       <Controller
@@ -21,4 +21,4 @@ const CustomInput = ({ name, type, placeholder, label }: TInputProps) => {
   );
 };
 
-export default CustomInput;
+export default NexusInput;

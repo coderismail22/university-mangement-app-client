@@ -1,30 +1,26 @@
-import { Button } from "antd";
-import CustomInput from "../../../components/form/CustomInput";
-import UniversityForm from "../../../components/form/UniversityForm";
+import { Button, Col, Flex } from "antd";
+import NexusForm from "../../../components/form/NexusForm";
 import { FieldValues, SubmitHandler } from "react-hook-form";
+import NexusSelect from "../../../components/form/NexusSelect";
 
 const CreateAcademicSemester = () => {
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     console.log(data);
   };
+  const nameOptions = [
+    { value: "Autumn", label: "Autumn" },
+    { value: "Summer", label: "Summer" },
+    { value: "Fall", label: "Fall" },
+  ];
   return (
-    <div>
-      <UniversityForm onSubmit={onSubmit}>
-        <CustomInput
-          type="text"
-          name="name"
-          label="Name"
-          placeholder="Give academic semester name"
-        />
-        <CustomInput
-          type="text"
-          name="name"
-          label="Name"
-          placeholder="Give academic semester name"
-        />
-        <Button htmlType="submit">Submit</Button>
-      </UniversityForm>
-    </div>
+    <Flex justify="center" align="center">
+      <Col span={8}>
+        <NexusForm onSubmit={onSubmit}>
+          <NexusSelect label="Name" name="Name" options={nameOptions} />
+          <Button htmlType="submit">Submit</Button>
+        </NexusForm>
+      </Col>
+    </Flex>
   );
 };
 

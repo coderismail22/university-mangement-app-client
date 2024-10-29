@@ -6,8 +6,8 @@ import { setUser } from "../../redux/features/auth/authSlice";
 import { verifyToken } from "../../utils/verifyToken";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import UniversityForm from "../../components/form/UniversityForm";
-import CustomInput from "../../components/form/CustomInput";
+import NexusForm from "../../components/form/NexusForm";
+import NexusInput from "../../components/form/NexusInput";
 
 type TUserInfo = {
   id: string;
@@ -43,7 +43,7 @@ const Login = () => {
     }
   };
   return (
-    <UniversityForm onSubmit={onSubmit} defaultValues={defaultValues}>
+    <NexusForm onSubmit={onSubmit} defaultValues={defaultValues}>
       <div
         style={{
           display: "flex",
@@ -53,12 +53,12 @@ const Login = () => {
           justifyContent: "center",
         }}
       >
-        <CustomInput name="id" type="text" placeholder="User ID" />
-        <CustomInput name="password" type="text" placeholder="Password" />
+        <NexusInput name="id" type="text" placeholder="User ID" />
+        <NexusInput name="password" type="text" placeholder="Password" />
 
         <Button htmlType="submit">SUBMIT</Button>
       </div>
-    </UniversityForm>
+    </NexusForm>
   );
 };
 
