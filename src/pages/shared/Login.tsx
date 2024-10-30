@@ -7,7 +7,7 @@ import { verifyToken } from "../../utils/verifyToken";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import NexusForm from "../../components/form/NexusForm";
-import NexusInput from "../../components/form/NexusInput";
+import CustomInput from "../../components/form/NexusInput";
 
 type TUserInfo = {
   id: string;
@@ -39,7 +39,7 @@ const Login = () => {
     } catch (error) {
       //Handle login error
       console.error("Login failed:", error);
-      toast.error("Login failed.");
+      toast.error(error?.message);
     }
   };
   return (
@@ -53,8 +53,8 @@ const Login = () => {
           justifyContent: "center",
         }}
       >
-        <NexusInput name="id" type="text" placeholder="User ID" />
-        <NexusInput name="password" type="text" placeholder="Password" />
+        <CustomInput name="id" type="text" placeholder="User ID" />
+        <CustomInput name="password" type="text" placeholder="Password" />
 
         <Button htmlType="submit">SUBMIT</Button>
       </div>
