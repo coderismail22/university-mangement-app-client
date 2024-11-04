@@ -32,8 +32,11 @@ const AcademicSemester = () => {
     if (extra.action === "filter") {
       const queryParams = [];
       filters.name?.forEach((item) => {
-        console.log("inside if block", item);
         queryParams.push({ name: "name", value: item });
+      });
+      filters.year?.forEach((item) => {
+        console.log("inside if block", item);
+        queryParams.push({ name: "year", value: item });
       });
       setParams(queryParams);
     }
@@ -57,25 +60,33 @@ const AcademicSemester = () => {
           text: "Fall",
           value: "Fall",
         },
-        {
-          text: "Submenu",
-          value: "Submenu",
-          children: [
-            {
-              text: "Green",
-              value: "Green",
-            },
-            {
-              text: "Black",
-              value: "Black",
-            },
-          ],
-        },
       ],
     },
     {
       title: "Year",
       dataIndex: "year",
+      filters: [
+        {
+          text: "2024",
+          value: "2024",
+        },
+        {
+          text: "2025",
+          value: "2025",
+        },
+        {
+          text: "2026",
+          value: "2026",
+        },
+        {
+          text: "2027",
+          value: "2027",
+        },
+        {
+          text: "2028",
+          value: "2028",
+        },
+      ],
     },
     {
       title: "Start Month",
