@@ -10,7 +10,11 @@ export type TTableData = Pick<
 
 const AcademicSemester = () => {
   const [params, setParams] = useState<[]>([]);
-  const { data: semesterData } = useGetAllSemestersQuery(params);
+  const {
+    data: semesterData,
+    isLoading,
+    isFetching,
+  } = useGetAllSemestersQuery(params);
   const tableData = semesterData?.data?.map(
     ({ _id, name, year, startMonth, endMonth }) => ({
       _id,
@@ -100,6 +104,7 @@ const AcademicSemester = () => {
   return (
     <div>
       <Table
+        loading={isFetching}
         columns={columns}
         dataSource={tableData}
         onChange={onChange}
