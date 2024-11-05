@@ -1,6 +1,6 @@
 import { Button, Layout } from "antd";
 import { LogoutOutlined } from "@ant-design/icons";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import { useAppDispatch } from "../../redux/hooks";
 import { logout } from "../../redux/features/auth/authSlice";
@@ -35,7 +35,10 @@ const MainLayout = () => {
           </div>
         </Content>
         <Footer style={{ textAlign: "center" }}>
-          Ant Design ©{new Date().getFullYear()} Created by Ant UED
+          Nexus University ©{new Date().getFullYear()} 
+          <Link target="_blank" to="https://ismailcodes.netlify.app">
+          {" "}| Ismail Codes
+          </Link>
         </Footer>
       </Layout>
     </Layout>
