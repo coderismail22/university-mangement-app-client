@@ -53,12 +53,14 @@ const CreateStudent = () => {
         <NexusForm onSubmit={onSubmit}>
           <Divider>Student Information</Divider>
           <Row gutter={8}>
+            {/* First Name */}
             <Col span={24} md={{ span: 8 }}>
               <NexusInput
                 type="text"
                 name="name.firstName"
                 label="First Name"
               />
+              {/* Middle Name */}
             </Col>
             <Col span={24} md={{ span: 8 }}>
               <NexusInput
@@ -67,8 +69,82 @@ const CreateStudent = () => {
                 label="Middle Name"
               />
             </Col>
+            {/* Last Name */}
             <Col span={24} md={{ span: 8 }}>
               <NexusInput type="text" name="name.lastName" label="Last Name" />
+            </Col>
+            {/* Gender */}
+            <Col span={24} md={{ span: 8 }}>
+              <NexusInput type="text" name="gender" label="Gender" />
+            </Col>
+            {/* Date of Birth */}
+            <Col span={24} md={{ span: 8 }}>
+              <NexusInput
+                type="text"
+                name="dateOfBirth"
+                label="Date of Birth"
+              />
+            </Col>
+            {/* Blood Group */}
+            <Col span={24} md={{ span: 8 }}>
+              <NexusInput type="text" name="bloodGroup" label="Blood Group" />
+            </Col>
+            {/* Email */}
+            <Col span={24} md={{ span: 8 }}>
+              <NexusInput type="text" name="email" label="Email" />
+            </Col>
+            {/* Contact */}
+            <Col span={24} md={{ span: 8 }}>
+              <NexusInput type="text" name="contactNo" label="Contact" />
+            </Col>
+            {/* Emergency Contact */}
+            <Col span={24} md={{ span: 8 }}>
+              <NexusInput
+                type="text"
+                name="emergencyContactNo"
+                label="Emergency Contact"
+              />
+            </Col>
+            <Divider>Guardian Information</Divider>
+            {/* Father's Name */}
+            <Col span={24} md={{ span: 8 }}>
+              <NexusInput type="text" name="fatherName" label="Father's Name" />
+            </Col>
+            {/* Father's Occupation */}
+            <Col span={24} md={{ span: 8 }}>
+              <NexusInput
+                type="text"
+                name="fatherOccupation"
+                label="Father's Occupation"
+              />
+            </Col>{" "}
+            {/* Father's Contact Number */}
+            <Col span={24} md={{ span: 8 }}>
+              <NexusInput
+                type="text"
+                name="fatherContactNo"
+                label="Father's Contact Number"
+              />
+            </Col>
+            {/* Mother's Name */}
+            <Col span={24} md={{ span: 8 }}>
+              <NexusInput type="text" name="motherName" label="Mother's Name" />
+            </Col>
+            {/* Mother's Occupation */}
+            <Col span={24} md={{ span: 8 }}>
+              <NexusInput
+                type="text"
+                name="motherOccupation"
+                label="Mother's Occupation"
+              />
+            </Col>{" "}
+            {/* Mother's Contact Number */}
+            <Col span={24} md={{ span: 8 }}>
+              <NexusInput
+                type="text"
+                name="motherContactNo"
+                label="Mother's Contact Number"
+              />
             </Col>
           </Row>
           <Button htmlType="submit">Submit</Button>

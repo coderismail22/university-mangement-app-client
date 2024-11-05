@@ -12,7 +12,7 @@ const MainLayout = () => {
     dispatch(logout());
   };
   return (
-    <Layout style={{ height: "100vh" }}>
+    <Layout style={{ height: "100%" }}>
       <Sidebar />
       <Layout>
         <Header style={{ padding: 0 }}>
@@ -24,7 +24,7 @@ const MainLayout = () => {
             Logout
           </Button>
         </Header>
-        <Content style={{ margin: "24px 16px 0" }}>
+        <Content style={{ margin: "24px 16px 0", height: "100vh" }}>
           <div
             style={{
               padding: 24,
@@ -35,9 +35,10 @@ const MainLayout = () => {
           </div>
         </Content>
         <Footer style={{ textAlign: "center" }}>
-          Nexus University ©{new Date().getFullYear()} 
+          Nexus University ©{new Date().getFullYear()}
           <Link target="_blank" to="https://ismailcodes.netlify.app">
-          {" "}| Ismail Codes
+            {" "}
+            | Ismail Codes
           </Link>
         </Footer>
       </Layout>
