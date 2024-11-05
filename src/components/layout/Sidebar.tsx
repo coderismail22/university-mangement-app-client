@@ -4,14 +4,12 @@ import { sidebarGenerator } from "../../utils/sidebarGenerator";
 import { adminArray } from "../../routes/admin.route";
 import { facultyArray } from "../../routes/faculty.route";
 import { studentArray } from "../../routes/student.route";
-import { baapArray } from "../../routes/baap.route";
 
 const Sidebar = () => {
   const userRole = {
     ADMIN: "admin",
     FACULTY: "faculty",
     STUDENT: "student",
-    BAAP: "baap",
   };
 
   const role = "admin";
@@ -25,9 +23,6 @@ const Sidebar = () => {
       break;
     case userRole.STUDENT:
       sidebarItems = sidebarGenerator(studentArray, userRole.STUDENT);
-      break;
-    case userRole.BAAP:
-      sidebarItems = sidebarGenerator(baapArray, userRole.BAAP);
       break;
 
     default:

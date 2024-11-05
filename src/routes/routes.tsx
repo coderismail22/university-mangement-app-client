@@ -7,7 +7,6 @@ import { adminArray } from "./admin.route";
 import { facultyArray } from "./faculty.route";
 import { studentArray } from "./student.route";
 import { routeGenerator } from "../utils/routeGenerator";
-import { baapArray } from "./baap.route";
 
 const router = createBrowserRouter([
   {
@@ -28,11 +27,6 @@ const router = createBrowserRouter([
     path: "/student",
     element: <App />,
     children: routeGenerator(studentArray),
-  },
-  {
-    path: "/baap",
-    element: <App />,
-    children: routeGenerator(baapArray),
   },
   {
     path: "/login",

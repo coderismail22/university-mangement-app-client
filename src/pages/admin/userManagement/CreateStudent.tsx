@@ -1,3 +1,8 @@
+import { FieldValues, SubmitHandler } from "react-hook-form";
+import NexusForm from "../../../components/form/NexusForm";
+import NexusInput from "../../../components/form/NexusInput";
+import { Button } from "antd";
+
 const studentMockData = {
   student: {
     name: {
@@ -34,7 +39,15 @@ const studentMockData = {
 };
 
 const CreateStudent = () => {
-  return <div>CreateStudent</div>;
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    console.log(data);
+  };
+  return (
+    <NexusForm onSubmit={onSubmit}>
+      <NexusInput type="text" name="name" label="name" />
+      <Button htmlType="submit">Submit</Button>
+    </NexusForm>
+  );
 };
 
 export default CreateStudent;
