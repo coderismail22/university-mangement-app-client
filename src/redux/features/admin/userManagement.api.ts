@@ -2,7 +2,7 @@ import { TQueryParam, TResponseRedux } from "../../../types";
 import { TAcademicSemester } from "../../../types/academicSemester.type";
 import { baseApi } from "../../api/baseApi";
 
-const academicManagementApi = baseApi.injectEndpoints({
+const userMangementApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     createAcademicSemester: builder.mutation({
       query: (data) => ({
@@ -35,6 +35,3 @@ const academicManagementApi = baseApi.injectEndpoints({
     }),
   }),
 });
-
-export const { useCreateAcademicSemesterMutation, useGetAllSemestersQuery } =
-  academicManagementApi;
