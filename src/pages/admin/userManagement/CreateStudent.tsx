@@ -44,7 +44,7 @@ const CreateStudent = () => {
   };
   return (
     <NexusForm onSubmit={onSubmit}>
-      <NexusInput type="text" name="name" label="name" />
+      <NexusInput type="text" name="name" label="Name" />
       <Button htmlType="submit">Submit</Button>
     </NexusForm>
   );
